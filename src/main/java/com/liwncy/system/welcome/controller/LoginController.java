@@ -2,12 +2,12 @@ package com.liwncy.system.welcome.controller;
 
 import cn.hutool.captcha.CaptchaUtil;
 import cn.hutool.captcha.LineCaptcha;
+import com.liwncy.system.welcome.model.ActiverUser;
 import com.liwncy.common.constants.ResultObj;
 import com.liwncy.common.utils.WebUtils;
 import com.liwncy.system.sysloginfo.model.SysLoginfo;
 import com.liwncy.system.sysloginfo.service.ISysLoginfoService;
 import com.liwncy.system.sysuser.model.UserVo;
-import com.liwncy.system.welcome.model.ActiverUser;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -36,7 +36,7 @@ public class LoginController {
     private ISysLoginfoService loginfoService;
 
     @RequestMapping("login")
-    public ResultObj login(UserVo userVo, String code, HttpSession session){
+    public ResultObj login(UserVo userVo,String code,HttpSession session){
 
         //获得存储在session中的验证码
         String sessionCode = (String) session.getAttribute("code");

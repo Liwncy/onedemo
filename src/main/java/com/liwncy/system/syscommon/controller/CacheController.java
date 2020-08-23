@@ -1,6 +1,6 @@
 package com.liwncy.system.syscommon.controller;
 
-import com.liwncy.common.cache.CachePool;
+import com.liwncy.framework.cache.CachePool;
 import com.liwncy.common.utils.CacheBean;
 import com.liwncy.common.constants.DataGridView;
 import com.liwncy.common.constants.ResultObj;

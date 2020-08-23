@@ -1,0 +1,7 @@
+{"lives":[{"province":"北京","city":"东城区","adcode":"110101","windpower":"≤3","weather":"晴","temperature":"31","humidity":"34","reporttime":"2020-06-12 13:56:24","winddirection":"东北"}],"count":"1","infocode":"10000","status":"1","info":"OK"}
+{"lives":[{"province":"北京","city":"东城区","adcode":"110101","windpower":"≤3","weather":"晴","temperature":"32","humidity":"30","reporttime":"2020-06-12 14:56:24","winddirection":"西南"}],"count":"1","infocode":"10000","status":"1","info":"OK"}
+{"lives":[],"count":"0","infocode":"10000","status":"1","info":"OK"}
+{"province":"山东省","city":"济南市","adcode":"370100","infocode":"10000","rectangle":"116.7172801,36.45453907;117.3654199,36.8701026","status":"1","info":"OK"}
+{"lives":[{"province":"北京","city":"东城区","adcode":"110101","windpower":"≤3","weather":"晴","temperature":"33","humidity":"30","reporttime":"2020-06-12 15:26:25","winddirection":"西南"}],"count":"1","infocode":"10000","status":"1","info":"OK"}
+{"lives":[{"province":"山东","city":"济南市","adcode":"370100","windpower":"≤3","weather":"阴","temperature":"30","humidity":"41","reporttime":"2020-06-12 15:23:25","winddirection":"东南"}],"count":"1","infocode":"10000","status":"1","info":"OK"}
+{"lives":[{"province":"山东","city":"济南市","adcode":"370100","windpower":"≤3","weather":"多云","temperature":"30","humidity":"35","reporttime":"2020-06-12 17:23:24","winddirection":"东"}],"count":"1","infocode":"10000","status":"1","info":"OK"}

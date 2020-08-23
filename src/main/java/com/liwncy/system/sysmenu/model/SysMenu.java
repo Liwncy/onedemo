@@ -5,8 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
-//import javax.persistence.Entity;
-//import javax.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
@@ -17,7 +17,7 @@ import java.io.Serializable;
  * @author Liwncy
  * @since 2019-11-07
  */
-//@Entity
+@Entity
 @TableName("SYS_MENU")
 public class SysMenu extends Model<SysMenu> {
 
@@ -26,7 +26,7 @@ public class SysMenu extends Model<SysMenu> {
     /**
      * ID
      */
-    //@Id
+    @Id
     @TableId("ID")
     private String id;
     /**

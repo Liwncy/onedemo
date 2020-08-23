@@ -19,7 +19,7 @@ public class SystemController {
      */
     @RequestMapping("toLogin")
     public String toLogin(){
-        return "/login";
+        return "system/index/login";
     }
 
     /**
