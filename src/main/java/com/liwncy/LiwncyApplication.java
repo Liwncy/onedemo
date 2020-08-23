@@ -20,7 +20,7 @@ public class LiwncyApplication  extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
         registry.addResourceHandler("/**").addResourceLocations("/view/");
-        registry.addResourceHandler("/**").addResourceLocations("/WEB-INF/view/");
+//        registry.addResourceHandler("/**").addResourceLocations("/WEB-INF/view/");
 
         super.addResourceHandlers(registry);
     }
