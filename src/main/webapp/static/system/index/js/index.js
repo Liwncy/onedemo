@@ -67,8 +67,6 @@ layui.use(['bodyTab','form','element','layer','jquery'],function(){
 		tab.tabMove();
 	})
 
-	//通过顶部菜单获取左侧二三级菜单   注：此处只做演示之用，实际开发中通过接口传参的方式获取导航数据
-	getData("base");
 
 	//手机设备的简单适配
     $('.site-tree-mobile').on('click', function(){
@@ -139,6 +137,48 @@ layui.use(['bodyTab','form','element','layer','jquery'],function(){
 		window.sessionStorage.removeItem("menu");
 		window.sessionStorage.removeItem("curmenu");
 	}
+
+	// 底部心灵鸡汤
+	function getChickenSoup(){
+		$.getJSON('/static/system/index/json/soup.json', function(json){
+			console.log(json);
+			var res = json.data;
+			setInterval(function(){
+				var num = Math.floor(Math.random() * (res.length-1) + 1);
+				$(".footer p span").text(res.filter(item => item.no === num )[0].words);
+			},10000)
+		});
+	}
+	// https://api.github.com/users/liwncy
+	function getGitInfo(){
+		$.ajax({
+			url:"https://api.github.com/users/liwncy",
+			data:{'id':''},
+			type:"get",
+			dataType:"json",
+			success:function(data){
+				console.log(data);
+				$('#userInfo img').attr("src",data.avatar_url);
+				$('#userInfo cite.adminName').text(data.name);
+
+				$('.user-photo img').attr("src",data.avatar_url);
+				$('.user-photo span').text(data.name);
+
+				//location.reload(); //删除成功后再刷新
+			},
+			error:function(data){
+				layer.msg("此github用户不存在!");
+			}
+		});
+	}
+
+	$(function() {
+		//通过顶部菜单获取左侧二三级菜单   注：此处只做演示之用，实际开发中通过接口传参的方式获取导航数据
+		getData("base");
+		//加载底部心灵鸡汤
+		getChickenSoup();
+		console.log(1111);
+	});
 })
 
 //打开新窗口

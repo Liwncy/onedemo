@@ -9,6 +9,9 @@ import com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;
 
 import java.util.Scanner;
 
+/**
+ * mybatis-generator 代码生成demo
+ */
 public class CodeGenerator {
     /**
      * <p>

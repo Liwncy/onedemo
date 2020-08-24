@@ -1,4 +1,4 @@
-package com.liwncy.onedemo.java8demo.stream;
+package com.liwncy.oneexamples.java8exp.stream;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.liwncy.system.sysdept.model.SysDept;

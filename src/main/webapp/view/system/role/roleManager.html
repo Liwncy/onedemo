@@ -11,11 +11,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
-    <link rel="icon" href="/WEB-INF/view/system/favicon.ico">
-    <link rel="stylesheet" href="../../../static/resources/layui/css/layui.css" th:href="@{/static/resources/layui/css/layui.css}" media="all"/>
-    <link rel="stylesheet" href="../../../static/css/system/public.css" th:href="@{/static/css/system/public.css}" media="all"/>
-    <link rel="stylesheet" th:href="@{/static/resources/layui_ext/dtree/dtree.css}" media="all"/>
-    <link rel="stylesheet" th:href="@{/static/resources/layui_ext/dtree/font/dtreefont.css}" media="all"/>
+    <link rel="icon" href="/view/favicon.ico">
+    <link rel="stylesheet" href="../../../static/plugins/layui/css/layui.css" th:href="@{/static/plugins/layui/css/layui.css}" media="all"/>
+    <link rel="stylesheet" th:href="@{/static/css/system/public.css}" media="all"/>
+    <link rel="stylesheet" th:href="@{/static/plugins/dtree/dtree.css}" media="all"/>
+    <link rel="stylesheet" th:href="@{/static/plugins/dtree/font/dtreefont.css}" media="all"/>
 </head>
 <body class="childrenBody">
 <!--查询条件-->
@@ -137,11 +137,11 @@
     <ul id="permissionTree" class="dtree" data-id="0"></ul>
 </div>
 
-<script type="text/javascript" src="/static/resources/layui/layui.js"></script>
+<script type="text/javascript" src="/static/plugins/layui/layui.js"></script>
 
 <script type="text/javascript">
     layui.extend({
-        dtree: '/resources/layui_ext/dtree/dtree'
+        dtree: '/static/plugins/dtree/dtree'
     }).use(['jquery', 'form', 'layer', 'laydate', 'table','dtree'], function () {
         var $ = layui.jquery;
         var form = layui.form;

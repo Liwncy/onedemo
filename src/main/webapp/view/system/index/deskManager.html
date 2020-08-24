@@ -10,7 +10,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="format-detection" content="telephone=no">
 	<link rel="stylesheet" href="/static/plugins/layui/css/layui.css" media="all" />
-	<link rel="stylesheet" href="/static/css/system/public.css" media="all" />
+	<link rel="stylesheet" href="/static/common/public.css" media="all" />
 </head>
 <body class="childrenBody">
 	<blockquote class="layui-elem-quote layui-bg-green">
@@ -30,7 +30,7 @@
 	</div>
 
 	<script type="text/javascript" src="/static/plugins/layui/layui.js"></script>
-	
+
 	<script type="text/javascript">
 	//获取当前登陆人
 	var currentUserName='[[${session.user.name}]]';
@@ -77,17 +77,17 @@
 	        parent.addTab($(this));
 	    })
 	    //最新文章列表
-	    $.get("/static/resources/json/newsList.json",function(data){
-	        var hotNewsHtml = '';
-	        for(var i=0;i<5;i++){
-	            hotNewsHtml += '<tr>'
-	                +'<td align="left"><a href="javascript:;"> '+data.data[i].newsName+'</a></td>'
-	                +'<td>'+data.data[i].newsTime.substring(0,10)+'</td>'
-	                +'</tr>';
-	        }
-	        $(".hot_news").html(hotNewsHtml);
-	        $(".userAll span").text(data.length);
-	    })
+	    // $.get("/static/resources/json/newsList.json",function(data){
+	    //     var hotNewsHtml = '';
+	    //     for(var i=0;i<5;i++){
+	    //         hotNewsHtml += '<tr>'
+	    //             +'<td align="left"><a href="javascript:;"> '+data.data[i].newsName+'</a></td>'
+	    //             +'<td>'+data.data[i].newsTime.substring(0,10)+'</td>'
+	    //             +'</tr>';
+	    //     }
+	    //     $(".hot_news").html(hotNewsHtml);
+	    //     $(".userAll span").text(data.length);
+	    // })
 	})
 
 	</script>

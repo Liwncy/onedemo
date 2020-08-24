@@ -1,4 +1,4 @@
-package com.liwncy.onedemo.robot;
+package com.liwncy.oneexamples.javacexp.robot;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

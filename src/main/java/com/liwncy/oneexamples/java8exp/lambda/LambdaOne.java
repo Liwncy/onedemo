@@ -1,4 +1,4 @@
-package com.liwncy.onedemo.java8demo.lambda;
+package com.liwncy.oneexamples.java8exp.lambda;
 
 /**
  * @Classname Liwncy
