@@ -1,134 +1,50 @@
 package com.liwncy.system.sysmenu.model;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.time.LocalDateTime;
 import java.io.Serializable;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 /**
  * <p>
- *
+ * 系统菜单表
  * </p>
  *
  * @author Liwncy
- * @since 2019-11-07
+ * @since 2020-08-24
  */
-@Entity
-@TableName("SYS_MENU")
-public class SysMenu extends Model<SysMenu> {
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+public class SysMenu implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID=1L;
 
-    /**
-     * ID
-     */
-    @Id
-    @TableId("ID")
-    private String id;
-    /**
-     * 菜单父ID
-     */
-    private String pId;
     /**
      * 菜单名称
      */
-    private String name;
+    private String menuName;
+
     /**
-     * 菜单URL
+     * 菜单路径
      */
-    private String url;
+    private String menuPath;
+
     /**
-     * 授权(多个用逗号分隔，如：business:list,business:create)
+     * 上级id
      */
-    private String perms;
+    private String menuParentId;
+
     /**
-     * 类型   0：目录   1：菜单   2：按钮
+     * 创建时间
      */
-    private Integer type;
+    private LocalDateTime createTime;
+
     /**
-     * 菜单图标
+     * 修改时间
      */
-    private String icon;
-    /**
-     * 排序
-     */
-    @TableField(value = "order_num")
-    private Integer orderNum;
+    private LocalDateTime updateTime;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getpId() {
-        return pId;
-    }
-
-    public void setpId(String pId) {
-        this.pId = pId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getPerms() {
-        return perms;
-    }
-
-    public void setPerms(String perms) {
-        this.perms = perms;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
-
-    public Integer getOrderNum() {
-        return orderNum;
-    }
-
-    public void setOrderNum(Integer orderNum) {
-        this.orderNum = orderNum;
-    }
-
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
 }
