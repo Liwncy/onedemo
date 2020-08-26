@@ -4,15 +4,12 @@ import java.io.BufferedReader;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
 import org.jsoup.nodes.Document;
 
 import org.jsoup.select.Elements;
 
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -20,7 +17,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 import org.jsoup.Jsoup;
@@ -29,14 +25,14 @@ import org.jsoup.Jsoup;
  * 获取github.com的个人仓库目录信息
  */
 public class GithubCom {
-    static String GITHUBURL = "https://github.com/";
+    static String GITHUBURL = "https://github.com";
 
     public static void main(String[] args) throws IOException {
         System.out.println("开始");
         String githubName = "Liwncy";
         String repoName = "onenotes";
         GithubCom githubCom = new GithubCom();
-        String urlpath = GITHUBURL + githubName + "/" + repoName;
+        String urlpath = GITHUBURL + "/" + githubName + "/" + repoName;
 
         String html = githubCom.getHtml(urlpath);
         Repo repo = githubCom.getRepoInfo(repoName, html);
@@ -108,10 +104,15 @@ public class GithubCom {
             Repo repo = new Repo();
             repo.setId(as.get(i).attr("ID"));
             repo.setName(as.get(i).text());
-            repo.setUrl(as.get(i).attr("href"));
+            repo.setUrl(GITHUBURL + as.get(i).attr("href"));
             if (!repo.getUrl().substring(repo.getUrl().lastIndexOf("/") + 1).contains(".")) {
-                String html2 = getHtml(GITHUBURL + repo.getUrl());
+                System.out.println(repo.getUrl());
+                String html2 = getHtml(repo.getUrl());
                 repo.setChildren(getData(html2));
+                repo.setIsFile("0");
+            }else {
+                repo.setIsFile("1");
+                repo.setFastUrl("https://cdn.jsdelivr.net/gh"+as.get(i).attr("href").replace("/blob/master",""));
             }
             list.add(repo);
         }
@@ -127,6 +128,8 @@ public class GithubCom {
         String pid;
         String name;
         String url;
+        String fastUrl;
+        String isFile;
         List<Repo> children;
     }
 }
