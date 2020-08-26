@@ -1,0 +1,133 @@
+package com.liwncy.oneexamples.javacexp.reptile;
+
+import java.io.BufferedReader;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import lombok.Data;
+import org.jsoup.nodes.Document;
+
+import org.jsoup.select.Elements;
+
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+
+import org.jsoup.Jsoup;
+
+/**
+ * 获取github.com的个人仓库目录信息
+ */
+public class GithubCom {
+    static String GITHUBURL = "https://github.com/";
+
+    public static void main(String[] args) throws IOException {
+        System.out.println("开始");
+        String githubName = "Liwncy";
+        String repoName = "onenotes";
+        GithubCom githubCom = new GithubCom();
+        String urlpath = GITHUBURL + githubName + "/" + repoName;
+
+        String html = githubCom.getHtml(urlpath);
+        Repo repo = githubCom.getRepoInfo(repoName, html);
+        System.out.println("结束");
+    }
+
+    /**
+     * 获取网站源码
+     *
+     * @param urlpath
+     * @return
+     * @throws IOException
+     */
+    public String getHtml(String urlpath) throws IOException {
+        StringBuffer buffer = new StringBuffer();
+        URL url = new URL(urlpath);
+        URLConnection conn = url.openConnection();
+
+        InputStream in = conn.getInputStream();
+        //字节流-》字符流 InputStreamReader
+        InputStreamReader reader = new InputStreamReader(in, "utf-8");
+        //按行读
+        BufferedReader breader = new BufferedReader(reader);
+        //读
+        String line = "";
+        while ((line = breader.readLine()) != null) {
+            buffer.append(line);
+        }
+        return buffer + "";
+    }
+
+    /**
+     * 获取仓库信息
+     *
+     * @param rname
+     * @param html
+     * @return
+     * @throws IOException
+     */
+    public Repo getRepoInfo(String rname, String html) throws IOException {
+        Repo repo = new Repo();
+        repo.setId("0");
+        repo.setName(rname);
+        repo.setChildren(getData(html));
+        //转成json格式
+        List<Object> rlist = new ArrayList<>();
+        rlist.add(repo);
+        JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(rlist));
+//        String json = JSONObject.toJSONString(repo);
+        String json = jsonArray.toString();
+        System.out.println(json);
+        return repo;
+    }
+
+    /**
+     * 获取目录数据
+     *
+     * @param html
+     * @return
+     * @throws IOException
+     */
+    public List<Repo> getData(String html) throws IOException {
+        List<Repo> list = new ArrayList<>();
+        Document document = Jsoup.parse(html);
+        // 获取到文件位置
+        Elements as = document.getElementsByClass("js-navigation-open link-gray-dark");
+        //System.out.println(as);
+        for (int i = 0; i < as.size(); i++) {
+            Repo repo = new Repo();
+            repo.setId(as.get(i).attr("ID"));
+            repo.setName(as.get(i).text());
+            repo.setUrl(as.get(i).attr("href"));
+            if (!repo.getUrl().substring(repo.getUrl().lastIndexOf("/") + 1).contains(".")) {
+                String html2 = getHtml(GITHUBURL + repo.getUrl());
+                repo.setChildren(getData(html2));
+            }
+            list.add(repo);
+        }
+        return list;
+    }
+
+    /**
+     * 仓库类
+     */
+    @Data
+    public static class Repo {
+        String id;
+        String pid;
+        String name;
+        String url;
+        List<Repo> children;
+    }
+}
+
