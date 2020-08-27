@@ -76,7 +76,8 @@ public class GithubCom {
         Repo repo = new Repo();
         repo.setId("0");
         repo.setName(rname);
-        repo.setChildren(getData(html));
+//        repo.setChildren(getData(html));
+        getData2(html,"##");
         //转成json格式
         List<Object> rlist = new ArrayList<>();
         rlist.add(repo);
@@ -118,7 +119,39 @@ public class GithubCom {
         }
         return list;
     }
-
+    /**
+     * 获取目录数据markdown
+     *
+     * @param html
+     * @return
+     * @throws IOException
+     */
+    public List<Repo> getData2(String html,String jinghao) throws IOException {
+        List<Repo> list = new ArrayList<>();
+        Document document = Jsoup.parse(html);
+        // 获取到文件位置
+        Elements as = document.getElementsByClass("js-navigation-open link-gray-dark");
+        //System.out.println(as);
+        jinghao += "#";
+        for (int i = 0; i < as.size(); i++) {
+            Repo repo = new Repo();
+            repo.setId(as.get(i).attr("ID"));
+            repo.setName(as.get(i).text());
+            repo.setUrl(GITHUBURL + as.get(i).attr("href"));
+            System.out.println(jinghao+"["+repo.getName().replace(".md","")+"]"+"(#"+as.get(i).attr("href").replace("/Liwncy/onenotes/blob/master","").replace(".md","")+")");
+            if (!repo.getUrl().substring(repo.getUrl().lastIndexOf("/") + 1).contains(".")) {
+//                System.out.println(repo.getUrl());
+                String html2 = getHtml(repo.getUrl());
+                repo.setChildren(getData2(html2,jinghao));
+                repo.setIsFile("0");
+            }else {
+                repo.setIsFile("1");
+                repo.setFastUrl("https://cdn.jsdelivr.net/gh"+as.get(i).attr("href").replace("/blob/master",""));
+            }
+            list.add(repo);
+        }
+        return list;
+    }
     /**
      * 仓库类
      */
