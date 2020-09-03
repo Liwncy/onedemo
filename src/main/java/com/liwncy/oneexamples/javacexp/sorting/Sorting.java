@@ -81,7 +81,7 @@ public class Sorting {
             for (int i = 0; i < k; i++) {
                 //组中的元素，从第二个数开始
                 for (int j = i + k; j < arr.length; j += k) {
-                    //l为有序序列最后一位的位数
+                    //定义l为有序序列最后一位的位数
                     int l = j - k;
                     //要插入的元素
                     int temp = arr[j];
