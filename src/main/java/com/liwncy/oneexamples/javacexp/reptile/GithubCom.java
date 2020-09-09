@@ -30,7 +30,7 @@ public class GithubCom {
     public static void main(String[] args) throws IOException {
         System.out.println("开始");
         String githubName = "Liwncy";
-        String repoName = "onenotes";
+        String repoName = "cloudnotes";
         GithubCom githubCom = new GithubCom();
         String urlpath = GITHUBURL + "/" + githubName + "/" + repoName;
 
