@@ -2,9 +2,9 @@
     js操作数组
  */
 
-//var x = [...new Set(years)]//es6数组去重
 /**
  * 数组去重
+ * var x = [...new Set(years)]//es6数组去重
  */
 export function deduplication() {
     const allArr = [{id: 1, name: "s"}, {id: 2, name: "ds"}, {id: 3, name: "gg"}];
@@ -18,6 +18,7 @@ export function deduplication() {
 }
 /**
  * arr.map()
+ * 处理数组的每个元素,并返回处理后的数组
  * 提取数组中所有项的id字段
  */
 export function t_map() {
@@ -32,6 +33,7 @@ export function t_map() {
 }
 /**
  * arr.filler()
+ * 筛选
  * 根据id移除数组中指定项
  */
 export function t_filler() {
@@ -43,6 +45,7 @@ export function t_filler() {
 }
 /**
  * arr.sort()
+ * 排序
  * 根据id排序
  */
 export function t_sort() {
@@ -51,9 +54,12 @@ export function t_sort() {
     console.log(finalArr);
 }
 
-//find
 /**
+ * arr.find()
+ * 找出一个符合条件的对象
  */
-export function test(arr) {
-
+export function test() {
+    let allArr = [{id: 1, name: "s"}, {id: 2, name: "ds"}, {id: 3, name: "gg"}];
+    let finalArr = allArr.find(item => item.id === 2);
+    console.log(finalArr);
 }
