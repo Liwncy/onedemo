@@ -1,4 +1,4 @@
-package com.liwncy.oneexamples.javacexp.robot;
+package com.liwncy.oneexample.javacexp.robot;
 
 import javax.swing.*;
 import java.awt.*;

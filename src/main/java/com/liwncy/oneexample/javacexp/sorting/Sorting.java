@@ -1,4 +1,4 @@
-package com.liwncy.oneexamples.javacexp.sorting;
+package com.liwncy.oneexample.javacexp.sorting;
 
 
 import java.util.Arrays;

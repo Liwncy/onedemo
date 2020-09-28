@@ -1,4 +1,4 @@
-package com.liwncy.oneexamples.java8exp.stream;
+package com.liwncy.oneexample.java8exp.stream;
 
 import org.assertj.core.util.Lists;
 
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-public class StreamOne {
+public class StreamAte {
 
     public static void main(String args[]) {
         System.out.println("使用 Java 7: ");

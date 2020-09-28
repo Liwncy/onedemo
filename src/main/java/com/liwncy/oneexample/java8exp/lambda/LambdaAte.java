@@ -1,4 +1,4 @@
-package com.liwncy.oneexamples.java8exp.lambda;
+package com.liwncy.oneexample.java8exp.lambda;
 
 /**
  * @Classname Liwncy
@@ -6,10 +6,10 @@ package com.liwncy.oneexamples.java8exp.lambda;
  * @Date
  * @Author
  */
-public class LambdaOne {
+public class LambdaAte {
 
     public static void main(String args[]){
-        LambdaOne tester = new LambdaOne();
+        LambdaAte tester = new LambdaAte();
 
         // 类型声明
         MathOperation addition = (int a, int b) -> a + b;

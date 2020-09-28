@@ -1,13 +1,6 @@
-package com.liwncy.oneexamples;
+package com.liwncy.oneexample;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.liwncy.oneexamples.javacexp.reptile.GithubCom;
 import lombok.Data;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class HelloWorld {
 //    public static void main(String args[]){

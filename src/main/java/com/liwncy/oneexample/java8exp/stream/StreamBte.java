@@ -1,4 +1,4 @@
-package com.liwncy.oneexamples.java8exp.stream;
+package com.liwncy.oneexample.java8exp.stream;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.liwncy.system.sysdept.model.SysDept;
@@ -12,7 +12,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class StreamTwo {
+public class StreamBte {
     public static void main(String args[]) {
         // 0,定义userList
         List<SysUser> userList = new ArrayList<>();
@@ -70,13 +70,13 @@ public class StreamTwo {
                 .distinct()
                 .collect(Collectors.toList());
         List<SysDept> deptList = userList.stream()
-                .map(StreamTwo::userToDept)
+                .map(StreamBte::userToDept)
                 .distinct()
                 .collect(Collectors.toList());
         System.out.println("SquaresList: " + squaresList);
         System.out.println("deptList:" + deptList);
         List<SysUserVo> exlisted = userList.stream()
-                .map(StreamTwo::userToUserVo)
+                .map(StreamBte::userToUserVo)
                 .collect(Collectors.toList());
         System.out.println("userVoList:" + exlisted);
 //        List<Integer> integers = Arrays.asList(1,2,13,4,15,6,17,8,19);
