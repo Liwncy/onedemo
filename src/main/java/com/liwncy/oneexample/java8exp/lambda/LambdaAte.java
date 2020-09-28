@@ -8,7 +8,7 @@ package com.liwncy.oneexample.java8exp.lambda;
  */
 public class LambdaAte {
 
-    public static void main(String args[]){
+    public static void main(String[] args){
         LambdaAte tester = new LambdaAte();
 
         // 类型声明

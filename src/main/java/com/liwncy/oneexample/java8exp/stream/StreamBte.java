@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class StreamBte {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         // 0,定义userList
         List<SysUser> userList = new ArrayList<>();
         QueryWrapper<SysUser> eq = new QueryWrapper();

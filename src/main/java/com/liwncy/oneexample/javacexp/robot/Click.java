@@ -25,7 +25,7 @@ public class Click {
             @Override
             public void mousePressed(MouseEvent e) {
                 // TODO Auto-generated method stub
-                if (e.getButton() == e.BUTTON3) {    // 判断获取的按钮是否为鼠标的右击
+                if (e.getButton() == MouseEvent.BUTTON3) {    // 判断获取的按钮是否为鼠标的右击
                     lb.setText(e.getX() + "," + e.getY());     // 获得鼠标点击位置的坐标并发送到标签的文字上
                 }
             }

@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class StreamAte {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         System.out.println("使用 Java 7: ");
 
         // 计算空字符串

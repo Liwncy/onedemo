@@ -12,7 +12,7 @@ import java.util.List;
  */
 @FunctionalInterface
 public interface ReferenceAte<T> {
-    public static void main(String args[]){
+    public static void main(String[] args){
 
         // 构造器引用：它的语法是Class::new，或者更一般的Class< T >::new实例如下：
         final Car car = Car.create( Car::new );
