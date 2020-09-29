@@ -13,7 +13,7 @@ package com.liwncy.onedemo.leetcode;
 //原因：342 + 465 = 807
 //
 // Related Topics 链表 数学
-public class leet0002 {
+public class Leet0002 {
     public static void main(String[] args) {
         ListNode l1 = new ListNode(9);
         l1.next = new ListNode(4);

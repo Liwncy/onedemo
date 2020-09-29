@@ -27,7 +27,7 @@ import java.util.Set;
 //     请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
 //
 // Related Topics 哈希表 双指针 字符串 Sliding Window
-public class leet0003 {
+public class Leet0003 {
     public static void main(String[] args) {
 
         int ss = lengthOfLongestSubstring("abcabcbb");
