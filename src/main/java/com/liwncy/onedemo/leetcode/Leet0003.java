@@ -1,8 +1,4 @@
 package com.liwncy.onedemo.leetcode;
-
-import java.util.HashSet;
-import java.util.Set;
-
 //给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
 //
 // 示例 1:
@@ -27,12 +23,23 @@ import java.util.Set;
 //     请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
 //
 // Related Topics 哈希表 双指针 字符串 Sliding Window
+
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * [3]无重复字符的最长字串
+ *
+ * @author: Liwncy
+ * @date: 2020-09-29 08:49
+ **/
 public class Leet0003 {
     public static void main(String[] args) {
 
         int ss = lengthOfLongestSubstring("abcabcbb");
         System.out.println(ss);
     }
+
     public static int lengthOfLongestSubstring(String s) {
         int left = 0, right = 0, max = 0;
         Set<Character> set = new HashSet<>();
