@@ -14,6 +14,7 @@ package com.liwncy.onedemo.leetcode;
 //
 // Related Topics 字符串
 // 👍 246 👎 0
+
 /**
  * [58]最后一个单词的长度
  *
@@ -29,12 +30,12 @@ public class Leet0058 {
 
     public int lengthOfLastWord1(String s) {
         int start = 0;
-        for (int i = s.length()-1; i >= 0; i--) {
-            if(s.charAt(i) != ' ' && start == 0){
-                start = i+1;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) != ' ' && start == 0) {
+                start = i + 1;
             }
-            if(s.charAt(i) == ' ' && start != 0){
-                return  start - i - 1;
+            if (s.charAt(i) == ' ' && start != 0) {
+                return start - i - 1;
             }
         }
         return start;
@@ -42,18 +43,25 @@ public class Leet0058 {
 
     /**
      * todo:未完成
+     *
      * @param s
      * @return
      */
     public int lengthOfLastWord(String s) {
-        int end = s.lastIndexOf(' ');
-        if(end == -1){
-            return s.length();
+        if (s.length() == 0){
+            return 0;
         }
-        if(end<s.length()){
-            return s.length() - end -1;
+        int count = 0;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) == ' ') {
+                if (count != 0) {
+                    break;
+                }
+                continue;
+            }
+            count++;
         }
-        return end;
+        return count;
     }
 
 }
