@@ -40,9 +40,17 @@ public class Leet0067 {
 //        System.out.println('0' + '1');
 //        System.out.println('1' + '0');
 //        System.out.println('1' + '1');
-        System.out.println(leet.addBinary("1010", "1011"));
+        System.out.println(leet.addBinary1("1010", "1011"));
+        System.out.println(leet.addBinary1("10100000100100110110010000010101111011011001101110111111111101000000101111001110001111100001101",
+                "110101001011101110001111100110001010100001101011101010000011011011001011101111001100000011011110011"));
     }
 
+    /**
+     *
+     * @param a
+     * @param b
+     * @return
+     */
     public String addBinary1(String a, String b) {
         StringBuilder sb = new StringBuilder();
         int al = a.length();
@@ -62,9 +70,19 @@ public class Leet0067 {
         return sb.toString();
     }
 
+    /**
+     * 转换成十进制,求和返回(不行,数字过大后失败)
+     * @param a
+     * @param b
+     * @return
+     */
     public String addBinary(String a, String b) {
         int sum = Integer.parseInt(a, 2) + Integer.parseInt(b, 2);
         String binary = Integer.toBinaryString(sum);
         return binary;
     }
+    /**
+     * 1,Integer.parseInt("1010", 2); 字符串转数字,后一个参数是进制;
+     * 2,Integer.toBinaryString(21); 十进制转二进制字符串;
+     */
 }
