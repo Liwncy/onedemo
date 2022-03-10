@@ -99,7 +99,7 @@ public class GithubCom {
         List<Repo> list = new ArrayList<>();
         Document document = Jsoup.parse(html);
         // 获取到文件位置
-        Elements as = document.getElementsByClass("js-navigation-open link-gray-dark");
+        Elements as = document.getElementsByClass("js-navigation-open Link--primary");
         //System.out.println(as);
         for (int i = 0; i < as.size(); i++) {
             Repo repo = new Repo();
@@ -130,7 +130,7 @@ public class GithubCom {
         List<Repo> list = new ArrayList<>();
         Document document = Jsoup.parse(html);
         // 获取到文件位置
-        Elements as = document.getElementsByClass("js-navigation-open link-gray-dark");
+        Elements as = document.getElementsByClass("js-navigation-open Link--primary");
         //System.out.println(as);
         jinghao += "#";
         for (int i = 0; i < as.size(); i++) {
