@@ -63,3 +63,18 @@ export function test() {
     let finalArr = allArr.find(item => item.id === 2);
     console.log(finalArr);
 }
+
+/**
+ * reduce
+ */
+export function t(){
+    [{groupId: 1, num:1},{groupId: 1, num:2},{groupId: 2, num:1},{groupId: 2, num:2}].reduce((obj, item) => {
+        let fi = obj.find(fi => item['groupId'] === fi['groupId']);
+        if (fi) {
+            fi['num'] += item['num'];
+        } else {
+            obj.push(item)
+        }
+        return obj
+    }, []);
+}
