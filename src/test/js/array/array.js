@@ -41,6 +41,8 @@ export function t_filler() {
     const allArr = [{id: 1, name: "s"}, {id: 2, name: "ds"}, {id: 3, name: "gg"}];
     const finalArr = allArr.filter((item) => !arr.includes(item.id));
     console.log(finalArr);
+    const fArr = allArr.filter((item) => arr.includes(allArr.indexOf(item)))
+    console.log(fArr);
     // finalArr = [{id:3,name:"gg"}];
 }
 /**
